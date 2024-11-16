@@ -20,7 +20,7 @@ You can install the required dependencies by running:
 │   ├── dev-train-labels-idx1-ubyte     # Training labels file
 ├── test
 │   └── test.png                        # Custom image input to detect 
-├── ocr.py                   # The main script for k-NN classification
+├── ocr.py                              # The main script for k-NN classification
 └── README.md                           # Project documentation
 ```
 
