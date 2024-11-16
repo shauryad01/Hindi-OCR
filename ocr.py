@@ -15,10 +15,10 @@ def write_image(image, path):
 
 DATA_DIR = 'data/'
 TEST_DIR = 'test/'
-TEST_DATA_FILENAME = DATA_DIR + 'dev-test-images-idx3-ubyte'
-TEST_LABELS_FILENAME = DATA_DIR + 'dev-test-labels-idx1-ubyte'
-TRAIN_DATA_FILENAME = DATA_DIR + 'dev-train-images-idx3-ubyte'
-TRAIN_LABELS_FILENAME = DATA_DIR + 'dev-train-labels-idx1-ubyte'
+TEST_DATA_FILENAME = DATA_DIR + 'devanagari-test-images-idx3-ubyte'
+TEST_LABELS_FILENAME = DATA_DIR + 'devanagari-test-labels-idx1-ubyte'
+TRAIN_DATA_FILENAME = DATA_DIR + 'devanagari-train-images-idx3-ubyte'
+TRAIN_LABELS_FILENAME = DATA_DIR + 'devanagari-train-labels-idx1-ubyte'
 
 def bytes_to_int(byte_data):
     return int.from_bytes(byte_data, 'big')
