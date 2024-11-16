@@ -107,7 +107,7 @@ from collections import defaultdict
 def main():
     n_train = 500
     n_test = 10
-    k = 5
+    k = 7
     print(f'n_train: {n_train}')
     print(f'n_test: {n_test}')
     print(f'k: {k}')
