@@ -1,5 +1,5 @@
 # Hindi OCR with k-NN Classifier
-This repository provides a simple implementation of Hindi Optical Character Recognition (OCR) using the k-Nearest Neighbors (k-NN) algorithm. The project works with a dataset of handwritten Hindi characters and can predict the character in a custom image.This project implements a k-Nearest Neighbors (k-NN) image classification model, using a custom dataset of 28x28 pixel grayscale images, similar to the MNIST dataset. The goal is to predict the class of an image based on the nearest neighbors in the training set.
+This repository provides a simple implementation of Hindi Optical Character Recognition (OCR) using the k-Nearest Neighbors (k-NN) algorithm. The project works with a dataset of handwritten Devanagari numerical characters and can predict the digit in a custom image. This project implements a k-Nearest Neighbors (k-NN) image classification model, using a custom dataset of 28x28 pixel grayscale images, similar to the MNIST dataset. The goal is to predict the class of an image based on the nearest neighbors in the training set.
 
 ## Overview
 Dataset: The project works with an MNIST-like dataset stored in the data/Dataset/ directory.
@@ -14,10 +14,10 @@ You can install the required dependencies by running:
 ## File Structure
 ```
 ├── data
-│   ├── dev-test-images-idx3-ubyte      # Test images file
-│   ├── dev-test-labels-idx1-ubyte      # Test labels file
-│   ├── dev-train-images-idx3-ubyte     # Training images file
-│   ├── dev-train-labels-idx1-ubyte     # Training labels file
+│   ├── devanagari-test-images-idx3-ubyte      # Test images file
+│   ├── devanagari-test-labels-idx1-ubyte      # Test labels file
+│   ├── devanagari-train-images-idx3-ubyte     # Training images file
+│   ├── devanagari-train-labels-idx1-ubyte     # Training labels file
 ├── test
 │   └── test.png                        # Custom image input to detect 
 ├── ocr.py                              # The main script for k-NN classification
