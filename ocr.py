@@ -4,9 +4,9 @@ from PIL import Image
 import numpy as np
 
 def read_image(path):
-    # Read image, convert to grayscale ('L'), and resize to 28x28 pixels
+    # Read image, convert to grayscale, resize to 28x28 pixels
     img = Image.open(path).convert('L')
-    img = img.resize((28, 28))  # Resize image to 28x28 to match MNIST data format
+    img = img.resize((28, 28)) 
     return np.asarray(img)
 
 def write_image(image, path):
@@ -26,7 +26,7 @@ def bytes_to_int(byte_data):
 def read_images(filename, n_max_images=None):
     images = []
     with open(filename, 'rb') as f:
-        _ = f.read(4)  # magic number
+        _ = f.read(4)
         n_images = bytes_to_int(f.read(4))
         if n_max_images:
             n_images = n_max_images
@@ -46,7 +46,7 @@ def read_images(filename, n_max_images=None):
 def read_labels(filename, n_max_labels=None):
     labels = []
     with open(filename, 'rb') as f:
-        _ = f.read(4)  # magic number
+        _ = f.read(4)
         n_labels = bytes_to_int(f.read(4))
         if n_max_labels:
             n_labels = n_max_labels
@@ -121,13 +121,13 @@ def main():
     # Shuffle images and labels together to ensure random order
     combined_train = list(zip(X_train, y_train))
     random.shuffle(combined_train)
-    X_train, y_train = zip(*combined_train)  # Unzip after shuffling
+    X_train, y_train = zip(*combined_train)
 
     combined_test = list(zip(X_test, y_test))
     random.shuffle(combined_test)
-    X_test, y_test = zip(*combined_test)  # Unzip after shuffling
+    X_test, y_test = zip(*combined_test)
 
-    # Save images before applying extract_features (ensure they're in 2D format here)
+    # Save images before applying extract_features
     if DEBUG:
         label_counts = defaultdict(int)
         for idx, (test_sample, true_label) in enumerate(zip(X_test, y_test)):
@@ -140,14 +140,14 @@ def main():
             print(f"Saving image {idx} with true label {true_label}, count {count}")
             write_image(test_sample, filename)
 
-    # After saving images, apply extract_features (flatten images for k-NN)
+    # flatten images for k-NN
     X_train = extract_features(X_train)
     X_test = extract_features(X_test)
 
-    # Run k-NN to get predictions
+    # Run k-NN
     y_pred = knn(X_train, y_train, X_test, k)
 
-    # Write images with predicted labels (after prediction)
+    # Write images with predicted labels
     if DEBUG:
         for idx, (test_sample, predicted_label) in enumerate(zip(X_test, y_pred)):
             print(f"Saving image {idx} with predicted label {predicted_label}")
@@ -163,8 +163,8 @@ def main():
     if DEBUG is not True: 
         # custom image prediction
         custom_image_path = TEST_DIR + "test.png"  # Set the custom image path to test/test.png
-        custom_image = read_image(custom_image_path)  # Read the image
-        custom_image_flattened = flatten_list(custom_image)  # Flatten the image for k-NN
+        custom_image = read_image(custom_image_path)  # Read image
+        custom_image_flattened = flatten_list(custom_image)  # Flatten image for k-NN
         # prediction for the custom image
         distances = get_training_distances_for_test_sample(X_train, custom_image_flattened)
         sorted_distance_indices = [
